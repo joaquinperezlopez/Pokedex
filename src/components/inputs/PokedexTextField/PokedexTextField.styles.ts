@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
-      height: 56,
+      minHeight: 75,
       gap: 10
     },
     label: {

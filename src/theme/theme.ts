@@ -4,6 +4,10 @@ import globalStyles from '@styles/global';
 export type PokedexTheme = Theme & {
   global: typeof globalStyles;
   colors: {
+    loading: {
+      background: string;
+      color: string;
+    };
     input: {
       background: string;
       text: string;
@@ -48,6 +52,10 @@ export const MainTheme: PokedexTheme = {
     text: '#fff',
     border: '#fff',
     notification: '#fff',
+    loading: {
+      background: 'rgba(0, 0, 0, 0.5)',
+      color: '#fff'
+    },
     input: {
       background: '#fff',
       text: '#000',

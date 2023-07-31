@@ -10,6 +10,7 @@ const useThemedStyles = <T extends ReturnType<typeof StyleSheet.create>>(
   const theme = useTheme();
   return {
     global: theme.global,
+    colors: theme.colors,
     ...styles(theme)
   };
 };

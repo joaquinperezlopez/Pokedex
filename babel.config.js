@@ -15,7 +15,6 @@ module.exports = {
           '@store': './src/store',
           '@navigation': './src/navigation',
           '@hooks': './src/hooks',
-          '@config': './src/config',
           '@styles': './src/styles',
           '@theme': './src/theme'
         }
