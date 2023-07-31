@@ -39,10 +39,6 @@ const HomeScreen = () => {
       </View>
       <View style={styles.buttonsContainer}>
         <PrimaryButton
-          onPress={onPressGoogleButton}
-          label={translate('screens.home.googleLogin')}
-        />
-        <PrimaryButton
           onPress={onPressFacebookButton}
           label={translate('screens.home.emailLogin')}
         />

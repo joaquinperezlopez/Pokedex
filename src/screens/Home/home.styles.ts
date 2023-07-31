@@ -1,4 +1,3 @@
-import globalStyles from '@styles/global';
 import { StyleSheet } from 'react-native';
 import { MainTheme } from '../../theme/theme';
 
@@ -10,7 +9,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   headerContainer: {
-    ...globalStyles.defaultGap,
+    gap: 16,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

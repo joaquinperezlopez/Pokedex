@@ -1,11 +1,7 @@
 import { useTheme } from '@react-navigation/native';
 import globalStyles from '@styles/global';
 import React from 'react';
-import {
-  Text,
-  TouchableHighlight,
-  TouchableHighlightProps
-} from 'react-native';
+import { Text, TouchableHighlightProps, TouchableOpacity } from 'react-native';
 import styles from './PrimaryButton.styles';
 
 type PrimaryButtonProps = TouchableHighlightProps & {
@@ -16,7 +12,7 @@ const PrimaryButton = ({ label, ...props }: PrimaryButtonProps) => {
   const theme = useTheme();
 
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       {...props}
       style={[
         styles.container,
@@ -34,7 +30,7 @@ const PrimaryButton = ({ label, ...props }: PrimaryButtonProps) => {
         ]}>
         {label}
       </Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

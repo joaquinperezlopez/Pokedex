@@ -57,14 +57,14 @@ export const MainTheme: PokedexTheme = {
       psychic: '#FB5584',
       rock: '#B69E31',
       steel: '#B7B9D0',
-      water: '#6493EB',
+      water: '#6493EB'
     },
     grayScale: {
       dark: '#212121',
       medium: '#666666',
-      light: '#E0E0E0',
-    },
-  },
+      light: '#E0E0E0'
+    }
+  }
 };
 
 // This overrides the default theme type from @react-navigation/native so we can have intelisense on our theme

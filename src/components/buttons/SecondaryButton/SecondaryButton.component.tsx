@@ -1,11 +1,7 @@
 import { useTheme } from '@react-navigation/native';
 import globalStyles from '@styles/global';
 import React from 'react';
-import {
-  Text,
-  TouchableHighlight,
-  TouchableHighlightProps
-} from 'react-native';
+import { Text, TouchableHighlightProps, TouchableOpacity } from 'react-native';
 import styles from './SecondaryButton.styles';
 
 type SecondaryButtonProps = TouchableHighlightProps & {
@@ -16,7 +12,7 @@ const SecondaryButton = ({ label, ...props }: SecondaryButtonProps) => {
   const theme = useTheme();
 
   return (
-    <TouchableHighlight {...props} style={[styles.container]}>
+    <TouchableOpacity {...props} style={[styles.container]}>
       <Text
         style={[
           globalStyles.subTitle1,
@@ -26,7 +22,7 @@ const SecondaryButton = ({ label, ...props }: SecondaryButtonProps) => {
         ]}>
         {label}
       </Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 
