@@ -5,7 +5,7 @@ import styles from './home.styles';
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Pokedex</Text>
     </View>
   );
 };

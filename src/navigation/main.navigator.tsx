@@ -8,7 +8,13 @@ const MainStack = createNativeStackNavigator<MainParamList>();
 export const MainNavigator = () => {
   return (
     <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={HomeScreen} />
+      <MainStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </MainStack.Navigator>
   );
 };
