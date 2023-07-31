@@ -1,45 +1,34 @@
 import PrimaryButton from '@components/buttons/PrimaryButton';
 import SecondaryButton from '@components/buttons/SecondaryButton';
+import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
-import { useTheme } from '@react-navigation/native';
-import globalStyles from '@styles/global';
+import { MainStackNavigationProps } from 'navigation/main.navigator.types';
 import React from 'react';
 import { Image, StatusBar, Text, View } from 'react-native';
-import styles from './home.styles';
+import styles from './Home.styles';
 
-const HomeScreen = () => {
-  const theme = useTheme();
+const HomeScreen = ({ navigation }: MainStackNavigationProps<'Home'>) => {
+  const themedStyles = useThemedStyles(styles);
 
-  const onPressGoogleButton = () => {
-    console.log('Google button pressed');
-  };
-
-  const onPressFacebookButton = () => {
+  const onPressEmailLogin = () => {
     console.log('Facebook button pressed');
   };
 
   const onSignUpPress = () => {
+    navigation.navigate('SignUp');
     console.log('Sign up button pressed');
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[themedStyles.container]}>
       <StatusBar barStyle="light-content" />
-      <View style={styles.headerContainer}>
+      <View style={themedStyles.headerContainer}>
         <Image source={require('@assets/images/pokeball.png')} />
-        <Text
-          style={[
-            globalStyles.headline,
-            {
-              color: theme.colors.text
-            }
-          ]}>
-          {translate('appName')}
-        </Text>
+        <Text style={themedStyles.appName}>{translate('appName')}</Text>
       </View>
-      <View style={styles.buttonsContainer}>
+      <View style={themedStyles.buttonsContainer}>
         <PrimaryButton
-          onPress={onPressFacebookButton}
+          onPress={onPressEmailLogin}
           label={translate('screens.home.emailLogin')}
         />
         <SecondaryButton

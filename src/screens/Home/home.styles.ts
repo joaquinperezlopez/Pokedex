@@ -1,25 +1,30 @@
+import { PokedexTheme } from '@theme/theme';
 import { StyleSheet } from 'react-native';
-import { MainTheme } from '../../theme/theme';
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: MainTheme.colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  headerContainer: {
-    gap: 16,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row'
-  },
-  buttonsContainer: {
-    gap: 20,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    width: '80%'
-  }
-});
+export default (theme: PokedexTheme) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.colors.background
+    },
+    appName: {
+      ...theme.global.headline,
+      color: theme.colors.text
+    },
+    headerContainer: {
+      gap: 16,
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'row'
+    },
+    buttonsContainer: {
+      gap: 20,
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      width: '80%'
+    }
+  });

@@ -1,7 +1,15 @@
 import { Theme } from '@react-navigation/native';
+import globalStyles from '@styles/global';
 
 export type PokedexTheme = Theme & {
+  global: typeof globalStyles;
   colors: {
+    input: {
+      background: string;
+      text: string;
+      label: string;
+      error: string;
+    };
     pokemonType: {
       bug: string;
       dark: string;
@@ -32,13 +40,20 @@ export type PokedexTheme = Theme & {
 
 export const MainTheme: PokedexTheme = {
   dark: false,
+  global: globalStyles,
   colors: {
-    primary: '#DC0A2D',
-    background: '#fff',
+    background: '#DC0A2D',
+    primary: '#fff',
     card: '#fff',
     text: '#fff',
     border: '#fff',
     notification: '#fff',
+    input: {
+      background: '#fff',
+      text: '#000',
+      label: '#fff',
+      error: '#DC0A2D'
+    },
     pokemonType: {
       bug: '#A7B723',
       dark: '#75574C',
