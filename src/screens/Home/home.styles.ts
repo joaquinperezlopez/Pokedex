@@ -7,10 +7,20 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: MainTheme.colors.primary,
     justifyContent: 'center',
+    alignItems: 'center'
+  },
+  headerContainer: {
+    ...globalStyles.defaultGap,
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row'
   },
-  text: {
-    ...globalStyles.headline,
-    color: MainTheme.colors.text,
-  },
+  buttonsContainer: {
+    gap: 20,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'stretch',
+    width: '80%'
+  }
 });

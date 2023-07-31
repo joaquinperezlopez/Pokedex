@@ -66,3 +66,8 @@ export const MainTheme: PokedexTheme = {
     },
   },
 };
+
+// This overrides the default theme type from @react-navigation/native so we can have intelisense on our theme
+declare module '@react-navigation/native' {
+  export function useTheme(): PokedexTheme;
+}

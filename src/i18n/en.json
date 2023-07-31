@@ -1,3 +1,10 @@
 {
-    "appName": "Pokédex"
+    "appName": "Pokédex",
+    "screens": {
+        "home": {
+            "googleLogin": "Sign in with Google",
+            "emailLogin": "Sign in with Email",
+            "signUp": "Sign Up",
+        }
+    }
 }
