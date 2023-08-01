@@ -2,6 +2,8 @@ import PrimaryButton from '@components/buttons/PrimaryButton';
 import SecondaryButton from '@components/buttons/SecondaryButton';
 import PokedexTextField from '@components/inputs/PokedexTextField';
 import TitleHeader from '@components/labels/TitleHeader';
+import Footer from '@components/layout/footer';
+import { MIN_PASSWORD_LENGTH } from '@constants/constants';
 import useGenericLoading from '@hooks/useLoading';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
@@ -30,6 +32,10 @@ const LoginScreen = ({ navigation }: MainStackNavigationProps<'Login'>) => {
       password: '',
     },
   });
+  const {
+    formState: { isValid },
+    handleSubmit,
+  } = formMethods;
 
   useGenericLoading(isLoading);
 
@@ -62,27 +68,47 @@ const LoginScreen = ({ navigation }: MainStackNavigationProps<'Login'>) => {
       <ScrollView>
         <FormProvider {...formMethods}>
           <PokedexTextField
-            fieldName="Email"
+            fieldName="email"
             placeholder={translate('screens.signUp.email')}
             onChangeText={onChangeEmail}
             value={loginData.email}
+            rules={{
+              required: translate('validation.required'),
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: translate('validation.email'),
+              },
+            }}
           />
           <PokedexTextField
-            fieldName="Password"
+            fieldName="password"
             placeholder={translate('screens.signUp.password')}
             onChangeText={onChangePassword}
             secureTextEntry
             value={loginData.password}
+            rules={{
+              required: translate('validation.required'),
+              minLength: {
+                value: MIN_PASSWORD_LENGTH,
+                message: translate('validation.minLength', {
+                  length: MIN_PASSWORD_LENGTH,
+                }),
+              },
+            }}
           />
         </FormProvider>
       </ScrollView>
-      <View style={themedStyles.footer}>
-        <PrimaryButton label="Login" onPress={onSubmit} />
+      <Footer>
+        <PrimaryButton
+          label={translate('screens.login.signIn')}
+          onPress={handleSubmit(onSubmit)}
+          disabled={!isValid}
+        />
         <SecondaryButton
-          label="Don't have an account? Sign Up"
+          label={translate('screens.login.noAccount')}
           onPress={onGoToSignUp}
         />
-      </View>
+      </Footer>
     </View>
   );
 };

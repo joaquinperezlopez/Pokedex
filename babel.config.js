@@ -16,9 +16,10 @@ module.exports = {
           '@navigation': './src/navigation',
           '@hooks': './src/hooks',
           '@styles': './src/styles',
-          '@theme': './src/theme'
-        }
-      }
-    ]
-  ]
+          '@theme': './src/theme',
+          '@constants': './src/constants',
+        },
+      },
+    ],
+  ],
 };

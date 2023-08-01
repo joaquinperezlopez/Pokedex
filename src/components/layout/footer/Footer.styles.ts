@@ -5,6 +5,6 @@ export default (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
       ...theme.global.defaultPadding,
-      flex: 1,
+      gap: 16,
     },
   });
