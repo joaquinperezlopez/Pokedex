@@ -1,8 +1,8 @@
-import PrivateNavigator from '@navigation/Private';
-import PublicNavigator from '@navigation/Public';
+import PrivateNavigator from '@navigation/private';
+import PublicNavigator from '@navigation/public';
 import { NavigationContainerRefWithCurrent } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { selectIsLoggedIn } from '@store/slices/auth/auth.reducer';
+import { selectIsLoggedIn } from '@store/slices/auth/auth.slice';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { MainParamList } from './main.navigator.types';

@@ -7,9 +7,9 @@ import { MIN_FIELD_LENGTH, MIN_PASSWORD_LENGTH } from '@constants/index';
 import useGenericLoading from '@hooks/useLoading';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
-import { isSignUpError } from '@models/error.types';
-import { User } from '@models/user.types';
-import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
+import { isSignUpError } from '@models/errors/error.types';
+import { User } from '@models/user/user.types';
+import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
 import { useSignUpMutation } from '@services/auth/auth.api';
 import React, { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -63,6 +63,8 @@ const SignUpScreen = ({ navigation }: PublicStackNavigationProps<'SignUp'>) => {
       console.log('Error on Sign Up', JSON.stringify(error, null, 2));
       if (isSignUpError(error)) {
         Alert.alert(error.data.message);
+      } else {
+        // TODO: - Show unknown error
       }
     }
   };

@@ -1,4 +1,4 @@
-import { Credentials } from '@models/credentials.types';
+import { Credentials } from '@models/auth/credentials.types';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import authApi from '@services/auth/auth.api';
 import { RootState } from '@store/index';

@@ -2,7 +2,7 @@ import PrimaryButton from '@components/buttons/PrimaryButton';
 import SecondaryButton from '@components/buttons/SecondaryButton';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
-import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
+import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
 import React from 'react';
 import { Image, StatusBar, Text, View } from 'react-native';
 import styles from './Home.styles';

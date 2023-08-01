@@ -6,11 +6,11 @@ export const LoadingContext = createContext<{
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }>({
   loading: false,
-  setLoading: () => {}
+  setLoading: () => {},
 });
 
 export const LoadingProvider = ({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) => {

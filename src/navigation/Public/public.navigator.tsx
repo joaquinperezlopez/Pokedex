@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '@screens/Public/Home';
-import LoginScreen from '@screens/Public/Login';
-import SignUpScreen from '@screens/Public/Signup';
+import HomeScreen from '@screens/public/Home';
+import LoginScreen from '@screens/public/Login';
+import SignUpScreen from '@screens/public/Signup';
 import React from 'react';
 import { PublicParamList } from './public.navigator.types';
 

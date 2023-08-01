@@ -14,6 +14,11 @@ export type PokedexTheme = Theme & {
       label: string;
       error: string;
     };
+    pokemonItem: {
+      background: string;
+      text: string;
+      favorite: string;
+    };
     pokemonType: {
       bug: string;
       dark: string;
@@ -54,13 +59,18 @@ export const MainTheme: PokedexTheme = {
     notification: '#fff',
     loading: {
       background: 'rgba(0, 0, 0, 0.5)',
-      color: '#fff'
+      color: '#fff',
     },
     input: {
       background: '#fff',
       text: '#000',
       label: '#fff',
-      error: '#fff'
+      error: '#fff',
+    },
+    pokemonItem: {
+      background: '#fff',
+      text: '#000',
+      favorite: '#ffff00',
     },
     pokemonType: {
       bug: '#A7B723',
@@ -80,14 +90,14 @@ export const MainTheme: PokedexTheme = {
       psychic: '#FB5584',
       rock: '#B69E31',
       steel: '#B7B9D0',
-      water: '#6493EB'
+      water: '#6493EB',
     },
     grayScale: {
       dark: '#212121',
       medium: '#666666',
-      light: '#E0E0E0'
-    }
-  }
+      light: '#E0E0E0',
+    },
+  },
 };
 
 // This overrides the default theme type from @react-navigation/native so we can have intelisense on our theme

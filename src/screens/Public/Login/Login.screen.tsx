@@ -7,8 +7,8 @@ import { MIN_PASSWORD_LENGTH } from '@constants/index';
 import useGenericLoading from '@hooks/useLoading';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
-import { isSignUpError } from '@models/error.types';
-import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
+import { isSignUpError } from '@models/errors/error.types';
+import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
 import { useLoginMutation } from '@services/auth/auth.api';
 import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -24,7 +24,7 @@ const LoginScreen = ({
   navigation,
   route,
 }: PublicStackNavigationProps<'Login'>) => {
-  const { email: routeMail } = route.params;
+  const { email: routeMail } = route?.params ?? {};
   const themedStyles = useThemedStyles(styles);
   const [loginData, setLoginData] = React.useState({
     email: routeMail ?? '',

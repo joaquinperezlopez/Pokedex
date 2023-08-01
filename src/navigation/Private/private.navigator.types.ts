@@ -1,8 +1,11 @@
+import { NamedAPIResource } from '@models/pokemon/pokemon.types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type PrivateParamList = {
   PokemonList: undefined;
-  PokemonDetail: undefined;
+  PokemonDetail: {
+    pokemon: NamedAPIResource;
+  };
 };
 
 export type PrivateScreenList = keyof PrivateParamList;
