@@ -18,13 +18,16 @@ const globalStyles = StyleSheet.create({
     fontWeight: 'bold'
   },
   body1: {
-    fontSize: 14
+    fontSize: 14,
+    fontWeight: '500'
   },
   body2: {
-    fontSize: 12
+    fontSize: 12,
+    fontWeight: '500'
   },
   body3: {
-    fontSize: 10
+    fontSize: 10,
+    fontWeight: '500'
   },
   caption: {
     fontSize: 8
@@ -40,7 +43,7 @@ const globalStyles = StyleSheet.create({
     elevation: 5
   },
   defaultPadding: {
-    padding: 8
+    padding: 10
   },
   defaultGap: {
     gap: 8

@@ -1,6 +1,10 @@
 import useThemedStyles from '@hooks/useThemeStyles';
 import React from 'react';
-import { Text, TouchableHighlightProps, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  TouchableHighlight,
+  TouchableHighlightProps
+} from 'react-native';
 import styles from './PrimaryButton.styles';
 
 type PrimaryButtonProps = TouchableHighlightProps & {
@@ -11,9 +15,11 @@ const PrimaryButton = ({ label, ...props }: PrimaryButtonProps) => {
   const themedStyles = useThemedStyles(styles);
 
   return (
-    <TouchableOpacity {...props} style={themedStyles.container}>
+    <TouchableHighlight
+      {...props}
+      style={[themedStyles.container, props.disabled && themedStyles.disabled]}>
       <Text style={themedStyles.text}>{label}</Text>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 

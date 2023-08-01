@@ -4,10 +4,12 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
-      ...theme.global.defaultPadding,
-      flex: 1
+      flex: 2,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    footer: {
-      gap: 20
-    }
+    title: {
+      ...theme.global.headline,
+      color: theme.colors.text,
+    },
   });

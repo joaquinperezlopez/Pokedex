@@ -11,12 +11,11 @@ const HomeScreen = ({ navigation }: MainStackNavigationProps<'Home'>) => {
   const themedStyles = useThemedStyles(styles);
 
   const onPressEmailLogin = () => {
-    console.log('Facebook button pressed');
+    navigation.navigate('Login');
   };
 
   const onSignUpPress = () => {
     navigation.navigate('SignUp');
-    console.log('Sign up button pressed');
   };
 
   return (

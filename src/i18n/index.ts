@@ -1,11 +1,11 @@
 import { Leaves } from '@utils/types';
-import { I18n, I18nOptions } from 'i18n-js';
+import { I18n, TranslateOptions } from 'i18n-js';
 import en from './en.json';
 import es from './es.json';
 
 const translations = {
   en,
-  es,
+  es
 };
 
 const i18n = new I18n(translations);
@@ -15,7 +15,7 @@ export type ValidI18nKey = Leaves<typeof en, 3>;
 
 // Create a wrapper function around the existing translate function
 // This provides autocompletion for translations
-const translate = (key: ValidI18nKey, options?: I18nOptions): string => {
+const translate = (key: ValidI18nKey, options?: TranslateOptions): string => {
   // Modify the key argument here, if necessary
   const modifiedKey = key;
 

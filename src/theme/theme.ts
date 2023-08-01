@@ -60,7 +60,7 @@ export const MainTheme: PokedexTheme = {
       background: '#fff',
       text: '#000',
       label: '#fff',
-      error: '#DC0A2D'
+      error: '#fff'
     },
     pokemonType: {
       bug: '#A7B723',

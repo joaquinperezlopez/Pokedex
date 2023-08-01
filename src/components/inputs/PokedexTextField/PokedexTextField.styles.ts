@@ -4,18 +4,20 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
-      minHeight: 75,
-      gap: 10
+      height: 80,
+      gap: 8,
     },
-    label: {
-      ...theme.global.subTitle1,
-      color: theme.colors.input.label
+    error: {
+      ...theme.global.body2,
+      color: theme.colors.input.error,
+      fontWeight: 'bold',
     },
     input: {
       ...theme.global.subTitle1,
       ...theme.global.defaultPadding,
       backgroundColor: theme.colors.input.background,
       color: theme.colors.input.text,
-      borderRadius: 4
-    }
+      borderRadius: 6,
+      marginHorizontal: 8,
+    },
   });

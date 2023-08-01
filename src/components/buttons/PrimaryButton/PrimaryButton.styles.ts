@@ -12,6 +12,9 @@ const styles = (theme: PokedexTheme) =>
       backgroundColor: theme.colors.background,
       borderColor: theme.colors.grayScale.light
     },
+    disabled: {
+      opacity: 0.7
+    },
     text: {
       ...theme.global.subTitle1,
       color: theme.colors.primary

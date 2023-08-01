@@ -1,18 +1,50 @@
 import useThemedStyles from '@hooks/useThemeStyles';
 import React from 'react';
+import {
+  RegisterOptions,
+  useController,
+  useFormContext
+} from 'react-hook-form';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 import styles from './PokedexTextField.styles';
 
 type PokedexTextFieldProps = {
-  label: string;
+  fieldName: string;
+  rules?: RegisterOptions;
 } & TextInputProps;
 
-const PokedexTextField = ({ label, ...rest }: PokedexTextFieldProps) => {
+const PokedexTextField = ({
+  fieldName,
+  rules,
+  ...rest
+}: PokedexTextFieldProps) => {
   const themedStyles = useThemedStyles(styles);
+  const { control, register } = useFormContext();
+  const {
+    field: { onChange, ref },
+    fieldState: { error }
+  } = useController({
+    name: fieldName,
+    control
+  });
+
+  const onChangeText = (text: string) => {
+    // this is to link the react-hook-form with the text input
+    onChange(text);
+    // and this one the one that the parent component can use
+    rest?.onChangeText?.(text);
+  };
+
   return (
     <View style={themedStyles.container}>
-      <Text style={themedStyles.label}>{label}</Text>
-      <TextInput {...rest} style={themedStyles.input} />
+      <TextInput
+        {...register(fieldName, rules)}
+        {...rest}
+        ref={ref}
+        style={themedStyles.input}
+        onChangeText={onChangeText}
+      />
+      <Text style={themedStyles.error}>{error?.message ?? ''}</Text>
     </View>
   );
 };

@@ -6,8 +6,16 @@ export default (theme: PokedexTheme) =>
     container: {
       ...theme.global.defaultPadding,
       flex: 1,
-      backgroundColor: theme.colors.background,
-      gap: 20
+      backgroundColor: theme.colors.background
+    },
+    header: {
+      flex: 2,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    title: {
+      ...theme.global.headline,
+      color: theme.colors.text
     },
     inputText: {
       ...theme.global.subTitle1
@@ -15,6 +23,7 @@ export default (theme: PokedexTheme) =>
     footer: {
       justifyContent: 'flex-end',
       gap: 8,
-      flex: 1
+      flex: 1,
+      paddingBottom: 20
     }
   });
