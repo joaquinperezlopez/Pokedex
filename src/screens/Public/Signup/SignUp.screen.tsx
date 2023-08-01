@@ -3,14 +3,14 @@ import SecondaryButton from '@components/buttons/SecondaryButton';
 import PokedexTextField from '@components/inputs/PokedexTextField';
 import TitleHeader from '@components/labels/TitleHeader';
 import Footer from '@components/layout/footer';
-import { MIN_FIELD_LENGTH, MIN_PASSWORD_LENGTH } from '@constants/constants';
+import { MIN_FIELD_LENGTH, MIN_PASSWORD_LENGTH } from '@constants/index';
 import useGenericLoading from '@hooks/useLoading';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
 import { isSignUpError } from '@models/error.types';
 import { User } from '@models/user.types';
+import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
 import { useSignUpMutation } from '@services/auth/auth.api';
-import { MainStackNavigationProps } from 'navigation/main.navigator.types';
 import React, { useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { Alert, ScrollView } from 'react-native';
@@ -25,7 +25,7 @@ type Inputs = {
   passwordConfirmation: string;
 };
 
-const SignUpScreen = ({ navigation }: MainStackNavigationProps<'SignUp'>) => {
+const SignUpScreen = ({ navigation }: PublicStackNavigationProps<'SignUp'>) => {
   const themedStyles = useThemedStyles(styles);
   const [user, setUser] = useState<User>({
     name: '',
@@ -56,7 +56,9 @@ const SignUpScreen = ({ navigation }: MainStackNavigationProps<'SignUp'>) => {
         name: data.name,
         surname: data.surname,
       }).unwrap();
-      navigation.navigate('Login');
+      navigation.navigate('Login', {
+        email: data.email,
+      });
     } catch (error) {
       console.log('Error on Sign Up', JSON.stringify(error, null, 2));
       if (isSignUpError(error)) {
@@ -88,7 +90,9 @@ const SignUpScreen = ({ navigation }: MainStackNavigationProps<'SignUp'>) => {
   };
 
   const onClickSignIn = () => {
-    navigation.navigate('Login');
+    navigation.navigate('Login', {
+      email: '',
+    });
   };
 
   return (

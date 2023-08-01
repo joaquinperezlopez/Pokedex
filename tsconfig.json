@@ -18,8 +18,8 @@
       "@assets/*": [
         "./assets/*"
       ],
-      "@navigations/*": [
-        "./navigations/*"
+      "@navigation/*": [
+        "./navigation/*"
       ],
       "@services/*": [
         "./services/*"

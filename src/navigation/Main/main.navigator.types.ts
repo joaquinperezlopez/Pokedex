@@ -1,11 +1,8 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type MainParamList = {
-  Home: undefined;
-  SignUp: undefined;
-  Login: undefined;
-  PokemonList: undefined;
-  PokemonDetail: undefined;
+  PublicNavigator: undefined;
+  PrivateNavigator: undefined;
 };
 
 export type MainScreenList = keyof MainParamList;

@@ -1,11 +1,15 @@
 import LoadingProvider from '@components/providers/LoadingProvider';
-import { NavigationContainer } from '@react-navigation/native';
+import MainNavigator from '@navigation/Main';
+import { MainParamList } from '@navigation/Main/main.navigator.types';
+import {
+  NavigationContainer,
+  createNavigationContainerRef,
+} from '@react-navigation/native';
 import { store } from '@store/index';
 import * as React from 'react';
 import { Platform } from 'react-native';
 import KeyboardManager from 'react-native-keyboard-manager';
 import { Provider } from 'react-redux';
-import { MainNavigator } from './src/navigation/main.navigator';
 import { MainTheme } from './src/theme/theme';
 
 if (Platform.OS === 'ios') {
@@ -14,12 +18,14 @@ if (Platform.OS === 'ios') {
   KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 }
 
+export const navigationRef = createNavigationContainerRef<MainParamList>();
+
 export default function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer theme={MainTheme}>
+      <NavigationContainer theme={MainTheme} ref={navigationRef}>
         <LoadingProvider>
-          <MainNavigator />
+          <MainNavigator navigationRef={navigationRef} />
         </LoadingProvider>
       </NavigationContainer>
     </Provider>

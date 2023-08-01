@@ -3,15 +3,16 @@ import SecondaryButton from '@components/buttons/SecondaryButton';
 import PokedexTextField from '@components/inputs/PokedexTextField';
 import TitleHeader from '@components/labels/TitleHeader';
 import Footer from '@components/layout/footer';
-import { MIN_PASSWORD_LENGTH } from '@constants/constants';
+import { MIN_PASSWORD_LENGTH } from '@constants/index';
 import useGenericLoading from '@hooks/useLoading';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
+import { isSignUpError } from '@models/error.types';
+import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
 import { useLoginMutation } from '@services/auth/auth.api';
-import { MainStackNavigationProps } from 'navigation/main.navigator.types';
 import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { ScrollView, View } from 'react-native';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { Alert, ScrollView, View } from 'react-native';
 import styles from './Login.styles';
 
 type Inputs = {
@@ -19,16 +20,20 @@ type Inputs = {
   password: string;
 };
 
-const LoginScreen = ({ navigation }: MainStackNavigationProps<'Login'>) => {
+const LoginScreen = ({
+  navigation,
+  route,
+}: PublicStackNavigationProps<'Login'>) => {
+  const { email: routeMail } = route.params;
   const themedStyles = useThemedStyles(styles);
   const [loginData, setLoginData] = React.useState({
-    email: '',
+    email: routeMail ?? '',
     password: '',
   });
   const [login, { isLoading }] = useLoginMutation();
   const formMethods = useForm<Inputs>({
     defaultValues: {
-      email: '',
+      email: routeMail ?? '',
       password: '',
     },
   });
@@ -51,15 +56,16 @@ const LoginScreen = ({ navigation }: MainStackNavigationProps<'Login'>) => {
     navigation.navigate('SignUp');
   };
 
-  const onSubmit = () => {
-    login(loginData)
-      .unwrap()
-      .then(response => {
-        console.log('response on login ', JSON.stringify(response, null, 2));
-      })
-      .catch(error => {
-        console.log('error on login ', JSON.stringify(error, null, 2));
-      });
+  const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
+    try {
+      const response = await login(data);
+      console.log('response ', JSON.stringify(response, null, 2));
+    } catch (error) {
+      console.log('error on login ', JSON.stringify(error, null, 2));
+      if (isSignUpError(error)) {
+        Alert.alert(error.data.message);
+      }
+    }
   };
 
   return (

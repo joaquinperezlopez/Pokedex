@@ -2,12 +2,12 @@ import PrimaryButton from '@components/buttons/PrimaryButton';
 import SecondaryButton from '@components/buttons/SecondaryButton';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate from '@i18n/index';
-import { MainStackNavigationProps } from 'navigation/main.navigator.types';
+import { PublicStackNavigationProps } from '@navigation/Public/public.navigator.types';
 import React from 'react';
 import { Image, StatusBar, Text, View } from 'react-native';
 import styles from './Home.styles';
 
-const HomeScreen = ({ navigation }: MainStackNavigationProps<'Home'>) => {
+const HomeScreen = ({ navigation }: PublicStackNavigationProps<'Home'>) => {
   const themedStyles = useThemedStyles(styles);
 
   const onPressEmailLogin = () => {

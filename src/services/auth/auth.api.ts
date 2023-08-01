@@ -4,30 +4,30 @@ import {
   LoginRequestParams,
   LoginRequestResponse,
   SignUpRequestParams,
-  SignUpRequestResponse
+  SignUpRequestResponse,
 } from './auth.api.types';
 
 const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: Config.AUTH_BASE_URL + Config.AUTH_API_VERSION + '/auth'
+    baseUrl: Config.AUTH_BASE_URL + Config.AUTH_API_VERSION + '/auth',
   }),
   endpoints: builder => ({
     login: builder.mutation<LoginRequestResponse, LoginRequestParams>({
       query: body => ({
         url: '/log-in',
         method: 'POST',
-        body
-      })
+        body,
+      }),
     }),
     signUp: builder.mutation<SignUpRequestResponse, SignUpRequestParams>({
       query: body => ({
         url: '/sign-up',
         method: 'POST',
-        body
-      })
-    })
-  })
+        body,
+      }),
+    }),
+  }),
 });
 
 export const { useLoginMutation, useSignUpMutation } = authApi;
