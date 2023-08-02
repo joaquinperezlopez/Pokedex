@@ -19,6 +19,7 @@
             "title": "Welcome back!",
             "noAccount": "Don't have an account? Sign up",
             "signIn": "Sign in",
+            "rememberMe": "Remember me",
         }
     },
     "validation": {

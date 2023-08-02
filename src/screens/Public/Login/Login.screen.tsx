@@ -10,9 +10,11 @@ import translate from '@i18n/index';
 import { isSignUpError } from '@models/errors/error.types';
 import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
 import { useLoginMutation } from '@services/auth/auth.api';
+import { useAppDispatch } from '@store/index';
+import { saveCredentialsThunk } from '@thunks/auth/auth.thunks';
 import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { Alert, ScrollView, View } from 'react-native';
+import { Alert, ScrollView, Switch, Text, View } from 'react-native';
 import styles from './Login.styles';
 
 type Inputs = {
@@ -29,7 +31,9 @@ const LoginScreen = ({
   const [loginData, setLoginData] = React.useState({
     email: routeMail ?? '',
     password: '',
+    rememberMe: true,
   });
+  const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation();
   const formMethods = useForm<Inputs>({
     defaultValues: {
@@ -56,10 +60,19 @@ const LoginScreen = ({
     navigation.navigate('SignUp');
   };
 
+  const onRememberMeClicked = (rememberMe: boolean) => {
+    console.log('rememberMe ', rememberMe);
+    setLoginData({ ...loginData, rememberMe });
+  };
+
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     try {
-      const response = await login(data);
-      console.log('response ', JSON.stringify(response, null, 2));
+      const response = await login(data).unwrap();
+      if (loginData.rememberMe) {
+        await dispatch(
+          saveCredentialsThunk({ credentials: response, email: data.email })
+        );
+      }
     } catch (error) {
       console.log('error on login ', JSON.stringify(error, null, 2));
       if (isSignUpError(error)) {
@@ -103,6 +116,17 @@ const LoginScreen = ({
             }}
           />
         </FormProvider>
+        <View style={themedStyles.rememberMeContainer}>
+          <Switch
+            onValueChange={onRememberMeClicked}
+            value={loginData.rememberMe}
+            thumbColor={themedStyles.colors.primary}
+            ios_backgroundColor={themedStyles.colors.background}
+          />
+          <Text style={themedStyles.rememberMeText}>
+            {translate('screens.login.rememberMe')}
+          </Text>
+        </View>
       </ScrollView>
       <Footer>
         <PrimaryButton

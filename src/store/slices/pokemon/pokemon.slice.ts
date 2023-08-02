@@ -1,5 +1,5 @@
 import { NamedAPIResource } from '@models/pokemon/pokemon.types';
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 import pokemonApi from '@services/pokemon';
 import { RootState } from '@store/index';
 
@@ -45,19 +45,38 @@ export const pokemonSlice = createSlice({
   },
 });
 
-// selectors
-export const selectPokemons = (query: string) => (state: RootState) => {
-  const pokemons = state.pokemons.pokemons;
+const filterPokemons = (pokemons: NamedAPIResource[], query: string) => {
   return pokemons.filter(
     (pokemon: NamedAPIResource) =>
       pokemon.name?.toLowerCase().includes(query.toLowerCase()) ||
-      pokemon.url?.split('/')[6].toLowerCase().includes(query.toLowerCase())
+      pokemon.url?.split('/')[6].toLowerCase().startsWith(query.toLowerCase())
   );
 };
 
-export const selectFavorites = (state: RootState) => {
-  return state.pokemons.favorites;
-};
+// https://redux.js.org/usage/deriving-data-selectors#passing-input-parameters
+const selectQuery = (
+  _: RootState,
+  query: {
+    queryString: string;
+    onlyFavorites: boolean;
+  }
+) => query;
+
+export const selectPokemons = createSelector(
+  (state: RootState) => state.pokemons,
+  selectQuery,
+  (pokemonState, query) => {
+    if (query.onlyFavorites) {
+      return filterPokemons(pokemonState.favorites, query.queryString);
+    }
+    return filterPokemons(pokemonState.pokemons, query.queryString);
+  }
+);
+
+export const selectFavorites = createSelector(
+  (state: RootState) => state.pokemons.favorites,
+  favorites => favorites
+);
 
 // Action creators are generated for each case reducer function
 export const { toggleFavorite } = pokemonSlice.actions;

@@ -1,39 +1,41 @@
 import FavoriteButton from '@components/buttons/FavoriteButton';
 import PokemonGridItem from '@components/gridItems/PokemonGridItem';
+import ExitButton from '@components/headerButtons/ExitButton';
 import useGenericLoading from '@hooks/useLoading';
-import useThemedStyles from '@hooks/useThemeStyles';
 import { NamedAPIResource } from '@models/pokemon/pokemon.types';
 import { PrivateStackNavigationProps } from '@navigation/Private/private.navigator.types';
+import { useTheme } from '@react-navigation/native';
 import { useGetPokemonsQuery } from '@services/pokemon/pokemon.api';
-import { useAppDispatch } from '@store/index';
+import { RootState, useAppDispatch } from '@store/index';
 import { logout } from '@store/slices/auth/auth.slice';
 import {
   selectFavorites,
   selectPokemons,
   toggleFavorite,
 } from '@store/slices/pokemon/pokemon.slice';
+import { cleanCredentialsThunk } from '@thunks/auth/auth.thunks';
 import React, { useCallback, useLayoutEffect } from 'react';
-import {
-  Alert,
-  FlatList,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Alert, FlatList, TextInput, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import styles from './PokemonList.styles';
 
 const PokemonListScreen = ({
   navigation,
 }: PrivateStackNavigationProps<'PokemonList'>) => {
-  const [onlyFavorites, setOnlyFavorites] = React.useState(false);
-  const themedStyles = useThemedStyles(styles);
-  const [query, setQuery] = React.useState('');
-  const pokemons = useSelector(selectPokemons(query));
-  const favorites = useSelector(selectFavorites);
-  const { isLoading } = useGetPokemonsQuery({ offset: 0, limit: 3000 });
   const dispatch = useAppDispatch();
+  const theme = useTheme();
+  const themedStyles = styles(theme);
+  const [query, setQuery] = React.useState({
+    queryString: '',
+    onlyFavorites: false,
+  });
+  const pokemons = useSelector((state: RootState) =>
+    selectPokemons(state, query)
+  );
+  const favorites = useSelector(selectFavorites);
+  // we need to fetch all the pokemons to be able to filter them locally
+  // the API doesn't support filtering by name or id
+  const { isLoading } = useGetPokemonsQuery({ offset: 0, limit: 3000 });
 
   useGenericLoading(isLoading);
 
@@ -45,28 +47,19 @@ const PokemonListScreen = ({
       },
       {
         text: 'Yes',
-        onPress: () => dispatch(logout()),
+        onPress: () => {
+          dispatch(cleanCredentialsThunk());
+          dispatch(logout());
+        },
       },
     ]);
   }, [dispatch]);
 
   useLayoutEffect(() => {
-    // set exit button on top left
     navigation.setOptions({
-      headerLeft: () => (
-        <TouchableOpacity onPress={onExit}>
-          <Text
-            style={{
-              fontSize: 20,
-              color: themedStyles.colors.text,
-              fontWeight: 'bold',
-            }}>
-            {'\u2715'}
-          </Text>
-        </TouchableOpacity>
-      ),
+      headerLeft: () => ExitButton({ onClick: onExit, theme: theme }),
     });
-  }, [navigation, onExit, themedStyles.colors.text]);
+  }, [navigation, onExit, theme]);
 
   const renderItem = ({ item }: { item: NamedAPIResource }) => {
     return (
@@ -88,11 +81,17 @@ const PokemonListScreen = ({
   };
 
   const onSearchTextChanged = (text: string) => {
-    setQuery(text);
+    setQuery({
+      queryString: text,
+      onlyFavorites: query.onlyFavorites,
+    });
   };
 
   const toggleFavorites = () => {
-    setOnlyFavorites(!onlyFavorites);
+    setQuery({
+      queryString: '',
+      onlyFavorites: !query.onlyFavorites,
+    });
   };
 
   return (
@@ -100,17 +99,20 @@ const PokemonListScreen = ({
       <View style={themedStyles.subHeader}>
         <TextInput
           style={themedStyles.input}
+          value={query.queryString}
           onChangeText={onSearchTextChanged}
           placeholder="Search by name or number..."
         />
-        <FavoriteButton isEnabled={onlyFavorites} onClick={toggleFavorites} />
+        <FavoriteButton
+          isEnabled={query.onlyFavorites}
+          onClick={toggleFavorites}
+        />
       </View>
       <FlatList
         contentContainerStyle={themedStyles.flatList}
-        data={onlyFavorites ? favorites : pokemons}
+        data={pokemons}
         showsVerticalScrollIndicator={false}
         renderItem={renderItem}
-        ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
       />
     </View>
   );

@@ -1,13 +1,11 @@
+import { Credentials } from '@models/auth/credentials.types';
+
 export type LoginRequestParams = {
   email: string;
   password: string;
 };
 
-export type LoginRequestResponse = {
-  accessToken: string;
-  refreshToken: string;
-  tokenType: string;
-};
+export type LoginRequestResponse = Credentials;
 
 export type SignUpRequestParams = {
   name: string;

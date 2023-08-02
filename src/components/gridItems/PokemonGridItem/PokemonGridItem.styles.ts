@@ -8,6 +8,7 @@ export default (theme: PokedexTheme) =>
       flex: 1 / 3,
       backgroundColor: theme.colors.pokemonItem.background,
       borderRadius: 4,
+      marginVertical: 4,
     },
     itemContainer: {
       flexDirection: 'row',

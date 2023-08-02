@@ -498,6 +498,8 @@ PODS:
     - React-RCTText
   - RNCAsyncStorage (1.19.1):
     - React-Core
+  - RNKeychain (8.1.2):
+    - React-Core
   - RNScreens (3.23.0):
     - React-Core
     - React-RCTImage
@@ -573,6 +575,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeKeyboardManager (from `../node_modules/react-native-keyboard-manager`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -680,6 +683,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-keyboard-manager"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNKeychain:
+    :path: "../node_modules/react-native-keychain"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -741,6 +746,7 @@ SPEC CHECKSUMS:
   ReactCommon: 3ccb8fb14e6b3277e38c73b0ff5e4a1b8db017a9
   ReactNativeKeyboardManager: 60292dbac467c49841a7d69588208ec4a4f7b2a2
   RNCAsyncStorage: f47fe18526970a69c34b548883e1aeceb115e3e1
+  RNKeychain: a65256b6ca6ba6976132cc4124b238a5b13b3d9c
   RNScreens: 6a8a3c6b808aa48dca1780df7b73ea524f602c63
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 8796b55dba14d7004f980b54bcc9833ee45b28ce

@@ -18,6 +18,7 @@ module.exports = {
           '@styles': './src/styles',
           '@theme': './src/theme',
           '@constants': './src/constants',
+          '@thunks': './src/thunks',
         },
       },
     ],

@@ -11,7 +11,9 @@ const HomeScreen = ({ navigation }: PublicStackNavigationProps<'Home'>) => {
   const themedStyles = useThemedStyles(styles);
 
   const onPressEmailLogin = () => {
-    navigation.navigate('Login');
+    navigation.navigate('Login', {
+      email: '',
+    });
   };
 
   const onSignUpPress = () => {
