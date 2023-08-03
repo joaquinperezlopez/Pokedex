@@ -3,7 +3,7 @@ import React from 'react';
 import {
   RegisterOptions,
   useController,
-  useFormContext
+  useFormContext,
 } from 'react-hook-form';
 import { Text, TextInput, TextInputProps, View } from 'react-native';
 import styles from './PokedexTextField.styles';
@@ -22,10 +22,10 @@ const PokedexTextField = ({
   const { control, register } = useFormContext();
   const {
     field: { onChange, ref },
-    fieldState: { error }
+    fieldState: { error },
   } = useController({
     name: fieldName,
-    control
+    control,
   });
 
   const onChangeText = (text: string) => {

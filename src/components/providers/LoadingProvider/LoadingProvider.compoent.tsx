@@ -19,7 +19,7 @@ export const LoadingProvider = ({
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
       {children}
-      {loading && <LoadingIndicator show={loading} />}
+      {loading && <LoadingIndicator />}
     </LoadingContext.Provider>
   );
 };

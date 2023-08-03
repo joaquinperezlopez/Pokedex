@@ -1,9 +1,7 @@
 import LoadingProvider from '@components/providers/LoadingProvider';
 import MainNavigator from '@navigation/main';
-import { MainParamList } from '@navigation/main/main.navigator.types';
 import {
-  NavigationContainer,
-  createNavigationContainerRef,
+  NavigationContainer
 } from '@react-navigation/native';
 import { persistor, store } from '@store/index';
 import * as React from 'react';
@@ -19,15 +17,13 @@ if (Platform.OS === 'ios') {
   KeyboardManager.setToolbarPreviousNextButtonEnable(true);
 }
 
-export const navigationRef = createNavigationContainerRef<MainParamList>();
-
 export default function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <NavigationContainer theme={MainTheme} ref={navigationRef}>
+        <NavigationContainer theme={MainTheme}>
           <LoadingProvider>
-            <MainNavigator navigationRef={navigationRef} />
+            <MainNavigator />
           </LoadingProvider>
         </NavigationContainer>
       </PersistGate>

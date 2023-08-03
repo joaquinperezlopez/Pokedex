@@ -10,15 +10,15 @@ const styles = (theme: PokedexTheme) =>
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: theme.colors.background,
-      borderColor: theme.colors.grayScale.light
+      borderColor: theme.colors.grayScale.light,
     },
     disabled: {
-      opacity: 0.7
+      opacity: 0.7,
     },
     text: {
       ...theme.global.subTitle1,
-      color: theme.colors.primary
-    }
+      color: theme.colors.primary,
+    },
   });
 
 export default styles;

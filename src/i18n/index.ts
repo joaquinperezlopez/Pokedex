@@ -5,7 +5,7 @@ import es from './es.json';
 
 const translations = {
   en,
-  es
+  es,
 };
 
 const i18n = new I18n(translations);

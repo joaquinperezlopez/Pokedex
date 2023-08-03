@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Text,
   TouchableHighlight,
-  TouchableHighlightProps
+  TouchableHighlightProps,
 } from 'react-native';
 import styles from './PrimaryButton.styles';
 

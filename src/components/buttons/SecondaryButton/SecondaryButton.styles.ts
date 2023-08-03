@@ -5,12 +5,12 @@ const styles = (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     text: {
       ...theme.global.subTitle1,
-      color: theme.colors.text
-    }
+      color: theme.colors.text,
+    },
   });
 
 export default styles;
