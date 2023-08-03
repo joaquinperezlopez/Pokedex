@@ -27,4 +27,11 @@ export default (theme: PokedexTheme) =>
       alignItems: 'stretch',
       width: '80%',
     },
+    flagsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: 25,
+      paddingBottom: 20,
+    },
   });

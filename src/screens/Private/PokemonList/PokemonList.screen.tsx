@@ -2,6 +2,7 @@ import FavoriteButton from '@components/buttons/FavoriteButton';
 import PokemonGridItem from '@components/gridItems/PokemonGridItem';
 import ExitButton from '@components/headerButtons/ExitButton';
 import useGenericLoading from '@hooks/useLoading';
+import translate from '@i18n/index';
 import { NamedAPIResource } from '@models/pokemon/pokemon.types';
 import { PrivateStackNavigationProps } from '@navigation/Private/private.navigator.types';
 import { useTheme } from '@react-navigation/native';
@@ -42,11 +43,11 @@ const PokemonListScreen = ({
   const onExit = useCallback(() => {
     Alert.alert('Exit', 'Are you sure you want to exit?', [
       {
-        text: 'Cancel',
+        text: translate('generic.cancel'),
         style: 'cancel',
       },
       {
-        text: 'Yes',
+        text: translate('generic.yes'),
         onPress: () => {
           dispatch(cleanCredentialsThunk());
           dispatch(logout());
@@ -102,7 +103,7 @@ const PokemonListScreen = ({
           style={themedStyles.input}
           value={query.queryString}
           onChangeText={onSearchTextChanged}
-          placeholder="Search by name or number..."
+          placeholder={translate('screens.pokemonList.searchBy')}
         />
         <FavoriteButton
           isEnabled={query.onlyFavorites}

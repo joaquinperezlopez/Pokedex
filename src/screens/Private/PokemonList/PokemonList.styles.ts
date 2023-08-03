@@ -17,7 +17,6 @@ export default (theme: PokedexTheme) =>
       marginRight: 6,
     },
     subHeader: {
-      height: 35,
       marginBottom: 6,
       paddingLeft: 4,
       flexDirection: 'row',

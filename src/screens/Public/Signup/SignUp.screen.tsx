@@ -64,7 +64,7 @@ const SignUpScreen = ({ navigation }: PublicStackNavigationProps<'SignUp'>) => {
       if (isSignUpError(error)) {
         Alert.alert(error.data.message);
       } else {
-        // TODO: - Show unknown error
+        Alert.alert(translate('validation.unknown'));
       }
     }
   };
@@ -141,7 +141,7 @@ const SignUpScreen = ({ navigation }: PublicStackNavigationProps<'SignUp'>) => {
               required: translate('validation.required'),
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: 'Entered value does not match email format',
+                message: translate('validation.email'),
               },
             }}
           />

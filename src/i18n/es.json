@@ -2,14 +2,41 @@
     "appName": "Pokédex",
     "screens": {
         "home": {
-            "googleLogin": "Acceder con Google",
             "emailLogin": "Acceder con email",
-            "signUp": "Registrarse",
+            "signUp": "Registrarse"
+        },
+        "signUp": {
+            "title": "¡Atrápalos todos!",
+            "alreadyHaveAccount": "¿Ya tienes una cuenta? Iniciar sesión",
+            "name": "Nombre",
+            "surname": "Apellido",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "confirmPassword": "Confirmar contraseña",
+        },
+        "login": {
+            "title": "¡Bienvenido de nuevo!",
+            "noAccount": "¿No tienes una cuenta? Registrarse",
+            "signIn": "Iniciar sesión",
+            "rememberMe": "Recordarme",
+        },
+        "pokemonList": {
+            "searchBy": "Buscar por nombre o número",
+        },
+        "pokemonDetail": {
+            "about": "Características",
+            "baseStats": "Estadísticas Base",
         }
     },
     "validation": {
-        "required": "This field is required",
-        "email": "Please enter a valid email address",
-        "minLength": "This field must be at least %{count} characters long"
+        "required": "Este campo es obligatorio",
+        "email": "Por favor, introduce una dirección de correo electrónico válida",
+        "minLength": "Este campo debe tener al menos {{count}} caracteres",
+        "matchPassword": "Las contraseñas deben coincidir",
+        "unknown": "Algo salió mal. Por favor, inténtalo de nuevo más tarde",
+    },
+    "generic": {
+        "cancel": "Cancelar",
+        "yes": "Sí",
     }
 }

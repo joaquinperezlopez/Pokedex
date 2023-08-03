@@ -7,6 +7,7 @@ import { PrivateStackNavigationProps } from '@navigation/Private/private.navigat
 import { useTheme } from '@react-navigation/native';
 
 import useGenericLoading from '@hooks/useLoading';
+import translate, { i18n } from '@i18n/index';
 import {
   useGetPokemonDetailQuery,
   useGetPokemonSpeciesDetailQuery,
@@ -89,17 +90,8 @@ const PokemonDetailScreen = ({
   // console.log the pokemon description text
   const pokemonDescription = sanitizeFlavorDescription(
     pokemonSpeciesDetail?.flavor_text_entries.find(
-      entry => entry.language.name === 'en'
+      entry => entry.language.name === i18n.locale
     )?.flavor_text
-  );
-
-  console.log(
-    'originalDescription',
-    pokemonSpeciesDetail?.flavor_text_entries.find(
-      entry => entry.language.name === 'en'
-    ),
-    'pokemonDescription',
-    pokemonDescription
   );
 
   const pokemonImageUrl =
@@ -128,7 +120,10 @@ const PokemonDetailScreen = ({
         <View style={themedStyles.pokemonInfoContainer}>
           <ScrollView>
             <PokemonTypePills types={pokemonData?.types ?? []} theme={theme} />
-            <PokemonItemTitle label="About" color={pokemonTypeColor} />
+            <PokemonItemTitle
+              label={translate('screens.pokemonDetail.about')}
+              color={pokemonTypeColor}
+            />
             <AboutPokemon
               height={pokemonData?.height}
               weight={pokemonData?.weight}
@@ -139,7 +134,10 @@ const PokemonDetailScreen = ({
                 {pokemonDescription}
               </Text>
             </View>
-            <PokemonItemTitle label="Base Stats" color={pokemonTypeColor} />
+            <PokemonItemTitle
+              label={translate('screens.pokemonDetail.baseStats')}
+              color={pokemonTypeColor}
+            />
             <PokemonStats
               stats={pokemonData?.stats ?? []}
               typeColor={pokemonTypeColor}

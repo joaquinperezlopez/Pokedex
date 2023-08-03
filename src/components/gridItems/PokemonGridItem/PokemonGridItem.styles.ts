@@ -8,13 +8,7 @@ export default (theme: PokedexTheme) =>
       flex: 1 / 2,
       maxWidth: '50%',
       aspectRatio: 1,
-      shadowColor: theme.colors.grayScale.dark,
-      shadowOffset: {
-        width: 0,
-        height: 10,
-      },
-      shadowOpacity: 0.25,
-      elevation: 4,
+      ...theme.global.shadow,
     },
     itemContainer: {
       ...theme.global.defaultPadding,

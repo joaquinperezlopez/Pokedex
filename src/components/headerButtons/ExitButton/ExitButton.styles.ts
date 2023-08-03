@@ -7,5 +7,6 @@ export default (theme: PokedexTheme) =>
       fontSize: 20,
       color: theme.colors.text,
       fontWeight: 'bold',
+      marginRight: 10,
     },
   });

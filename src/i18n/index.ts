@@ -8,7 +8,7 @@ const translations = {
   es,
 };
 
-const i18n = new I18n(translations);
+export const i18n = new I18n(translations);
 
 // 3 means how deep the object is, we currently allow 3 levels of nesting in our translations
 export type ValidI18nKey = Leaves<typeof en, 3>;

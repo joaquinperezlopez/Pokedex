@@ -13,8 +13,8 @@ export default (theme: PokedexTheme) =>
       fontWeight: 'bold',
     },
     input: {
-      ...theme.global.subTitle3,
-      ...theme.global.defaultPadding,
+      ...theme.global.subTitle2,
+      padding: 8,
       backgroundColor: theme.colors.input.background,
       color: theme.colors.input.text,
       borderRadius: 6,

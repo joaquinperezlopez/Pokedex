@@ -15,13 +15,7 @@ export default (theme: PokedexTheme) =>
       alignItems: 'stretch',
       backgroundColor: theme.colors.card,
       borderRadius: 6,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowOpacity: 0.32,
-      shadowRadius: 5.46,
+      ...theme.global.shadow,
     },
     pokemonHeaderContainer: {
       flex: 1,
@@ -31,7 +25,7 @@ export default (theme: PokedexTheme) =>
       minHeight: '35%',
       aspectRatio: 1,
       alignItems: 'center',
-      top: '-190%',
+      top: '-180%',
     },
     pokemonImage: {
       flex: 1,
@@ -52,5 +46,6 @@ export default (theme: PokedexTheme) =>
     },
     pokemonDescriptionText: {
       ...theme.global.body2,
+      paddingHorizontal: 16,
     },
   });

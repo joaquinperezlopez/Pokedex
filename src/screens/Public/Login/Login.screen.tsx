@@ -61,7 +61,6 @@ const LoginScreen = ({
   };
 
   const onRememberMeClicked = (rememberMe: boolean) => {
-    console.log('rememberMe ', rememberMe);
     setLoginData({ ...loginData, rememberMe });
   };
 

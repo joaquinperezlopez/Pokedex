@@ -7,3 +7,7 @@ export const FILLED_STAR = '\u2605';
 export const EMPTY_STAR = '\u2606';
 export const WEIGHT_UNIT = 'kg';
 export const HEIGHT_UNIT = 'm';
+// unicode string for Spain's flag
+export const SPAIN_FLAG = '\uD83C\uDDEA\uD83C\uDDF8';
+// unicode string for United Kingdom's flag
+export const UK_FLAG = '\uD83C\uDDEC\uD83C\uDDE7';

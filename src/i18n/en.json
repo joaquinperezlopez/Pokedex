@@ -2,7 +2,6 @@
     "appName": "Pokédex",
     "screens": {
         "home": {
-            "googleLogin": "Sign in with Google",
             "emailLogin": "Sign in with Email",
             "signUp": "Sign Up"
         },
@@ -20,6 +19,13 @@
             "noAccount": "Don't have an account? Sign up",
             "signIn": "Sign in",
             "rememberMe": "Remember me",
+        },
+        "pokemonList": {
+            "searchBy": "Search by name or number",
+        },
+        "pokemonDetail": {
+            "about": "About",
+            "baseStats": "Base Stats",
         }
     },
     "validation": {
@@ -27,5 +33,10 @@
         "email": "Please enter a valid email address",
         "minLength": "This field must be at least {{count}} characters long",
         "matchPassword": "Passwords must match",
+        "unknown": "Something went wrong. Please try again later",
+    },
+    "generic": {
+        "cancel": "Cancel",
+        "yes": "Yes",
     }
 }
