@@ -10,7 +10,7 @@ export default (theme: PokedexTheme) =>
       backgroundColor: theme.colors.background
     },
     appName: {
-      ...theme.global.headline,
+      ...theme.global.headline1,
       color: theme.colors.text
     },
     headerContainer: {

@@ -1,8 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 const globalStyles = StyleSheet.create({
-  headline: {
+  headline1: {
     fontSize: 32,
+    fontWeight: 'bold',
+  },
+  headline2: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  headline3: {
+    fontSize: 20,
     fontWeight: 'bold',
   },
   subTitle1: {

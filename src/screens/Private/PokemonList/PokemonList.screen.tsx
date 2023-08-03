@@ -15,7 +15,7 @@ import {
 } from '@store/slices/pokemon/pokemon.slice';
 import { cleanCredentialsThunk } from '@thunks/auth/auth.thunks';
 import React, { useCallback, useLayoutEffect } from 'react';
-import { Alert, FlatList, TextInput, View } from 'react-native';
+import { Alert, FlatList, StatusBar, TextInput, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import styles from './PokemonList.styles';
 
@@ -96,6 +96,7 @@ const PokemonListScreen = ({
 
   return (
     <View style={themedStyles.container}>
+      <StatusBar barStyle="light-content" />
       <View style={themedStyles.subHeader}>
         <TextInput
           style={themedStyles.input}
@@ -112,6 +113,7 @@ const PokemonListScreen = ({
       <FlatList
         contentContainerStyle={themedStyles.flatList}
         data={pokemons}
+        numColumns={2}
         showsVerticalScrollIndicator={false}
         renderItem={renderItem}
       />

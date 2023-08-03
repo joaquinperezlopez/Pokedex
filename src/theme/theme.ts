@@ -69,8 +69,9 @@ export const MainTheme: PokedexTheme = {
     },
     pokemonItem: {
       background: '#fff',
-      text: '#000',
-      favorite: '#ffff00',
+      // light gray
+      text: '#666666',
+      favorite: '#e0bc19',
     },
     pokemonType: {
       bug: '#A7B723',

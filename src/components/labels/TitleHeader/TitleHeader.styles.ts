@@ -9,7 +9,7 @@ export default (theme: PokedexTheme) =>
       alignItems: 'center',
     },
     title: {
-      ...theme.global.headline,
+      ...theme.global.headline1,
       color: theme.colors.text,
     },
   });

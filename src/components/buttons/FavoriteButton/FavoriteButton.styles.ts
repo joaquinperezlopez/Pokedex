@@ -4,8 +4,9 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     favoriteButton: {
-      ...theme.global.headline,
-      color: theme.colors.grayScale.light,
+      ...theme.global.headline1,
+      color: theme.colors.text,
+      fontWeight: 'normal',
     },
     favoriteButtonSmall: {
       fontSize: 26,

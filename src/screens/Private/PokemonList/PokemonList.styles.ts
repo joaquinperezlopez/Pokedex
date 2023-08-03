@@ -19,6 +19,7 @@ export default (theme: PokedexTheme) =>
     subHeader: {
       height: 35,
       marginBottom: 6,
+      paddingLeft: 4,
       flexDirection: 'row',
       justifyContent: 'space-between',
     },

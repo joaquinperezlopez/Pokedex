@@ -4,32 +4,60 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     itemTouchable: {
-      ...theme.global.defaultPadding,
-      flex: 1 / 3,
-      backgroundColor: theme.colors.pokemonItem.background,
-      borderRadius: 4,
-      marginVertical: 4,
+      padding: 4,
+      flex: 1 / 2,
+      maxWidth: '50%',
+      aspectRatio: 1,
+      shadowColor: theme.colors.grayScale.dark,
+      shadowOffset: {
+        width: 0,
+        height: 10,
+      },
+      shadowOpacity: 0.25,
+      elevation: 4,
     },
     itemContainer: {
-      flexDirection: 'row',
+      ...theme.global.defaultPadding,
+
+      borderRadius: 4,
+      flexDirection: 'column',
       gap: 8,
+      alignItems: 'stretch',
+      flex: 1,
+      // add gradient as background from top to bottom with 0.5 opacity
+      backgroundColor: theme.colors.pokemonItem.background,
+    },
+    headerRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
       alignItems: 'center',
+    },
+    imageRow: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+    },
+    nameRow: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
+    numberText: {
+      ...theme.global.body1,
+      fontWeight: 'bold',
     },
     itemText: {
       ...theme.global.body1,
+      fontWeight: 'bold',
       color: theme.colors.pokemonItem.text,
       textTransform: 'capitalize',
     },
     itemImage: {
+      flex: 1,
+      resizeMode: 'contain',
+      minHeight: '50%',
       aspectRatio: 1,
-      width: '20%',
     },
-    itemFavorite: {},
-    star: {
-      ...theme.global.headline,
+    favoriteText: {
       color: theme.colors.grayScale.light,
-    },
-    favoriteColor: {
-      color: theme.colors.pokemonItem.favorite,
     },
   });

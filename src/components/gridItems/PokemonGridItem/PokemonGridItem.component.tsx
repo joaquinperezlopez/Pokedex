@@ -34,23 +34,32 @@ const PokemonGridItem = ({
       key={item.name}
       onPress={onPress}>
       <View style={themedStyles.itemContainer}>
-        <Image
-          style={themedStyles.itemImage}
-          source={{
-            uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
-          }}
-          resizeMode="cover"
-        />
-        <Text
-          adjustsFontSizeToFit
-          numberOfLines={1}
-          style={themedStyles.itemText}>{`#${pokemonId}  ${item.name}`}</Text>
-        <View style={theme.global.flex1} />
-        <FavoriteButton
-          isEnabled={isFavorite}
-          onClick={onPressFavorite}
-          theme={theme}
-        />
+        <View style={themedStyles.headerRow}>
+          <FavoriteButton
+            isEnabled={isFavorite}
+            onClick={onPressFavorite}
+            theme={theme}
+            small
+            textStyle={!isFavorite ? themedStyles.favoriteText : undefined}
+          />
+          <Text style={themedStyles.numberText}>#{pokemonId}</Text>
+        </View>
+        <View style={themedStyles.imageRow}>
+          <Image
+            style={themedStyles.itemImage}
+            source={{
+              uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
+            }}
+          />
+        </View>
+        <View style={themedStyles.nameRow}>
+          <Text
+            adjustsFontSizeToFit
+            numberOfLines={1}
+            style={themedStyles.itemText}>
+            {item.name}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
