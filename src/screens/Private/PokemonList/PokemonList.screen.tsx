@@ -106,6 +106,7 @@ const PokemonListScreen = ({
         <FavoriteButton
           isEnabled={query.onlyFavorites}
           onClick={toggleFavorites}
+          theme={theme}
         />
       </View>
       <FlatList

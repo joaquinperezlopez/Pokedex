@@ -5,3 +5,5 @@ export const POKEMON_PAGE_SIZE = 21;
 export const FILLED_STAR = '\u2605';
 // unicode string for empty star yellow
 export const EMPTY_STAR = '\u2606';
+export const WEIGHT_UNIT = 'kg';
+export const HEIGHT_UNIT = 'm';

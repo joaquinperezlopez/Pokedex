@@ -58,7 +58,7 @@ export const MainTheme: PokedexTheme = {
     border: '#fff',
     notification: '#fff',
     loading: {
-      background: 'rgba(0, 0, 0, 0.5)',
+      background: '#DC0A2D',
       color: '#fff',
     },
     input: {

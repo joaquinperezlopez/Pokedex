@@ -15,6 +15,8 @@ export const PrivateNavigator = () => {
         headerStyle: {
           backgroundColor: theme.colors.background,
         },
+        headerShadowVisible: false,
+        headerBackTitleVisible: false,
       }}>
       <PrivateStack.Screen
         name="PokemonList"

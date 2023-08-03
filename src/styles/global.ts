@@ -54,6 +54,9 @@ const globalStyles = StyleSheet.create({
   verticalSpacer: {
     height: 8,
   },
+  flex1: {
+    flex: 1,
+  },
 });
 
 export default globalStyles;

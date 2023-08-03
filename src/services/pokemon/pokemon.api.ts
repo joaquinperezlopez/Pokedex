@@ -1,7 +1,14 @@
 import { POKEMON_PAGE_SIZE } from '@constants/index';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Config from 'react-native-config';
-import { GetPokemonsParams, GetPokemonsResponse } from './pokemon.api.types';
+import {
+  GetPokemonDetailParams,
+  GetPokemonDetailResponse,
+  GetPokemonSpeciesDetailsParams,
+  GetPokemonSpeciesDetailsResponse,
+  GetPokemonsParams,
+  GetPokemonsResponse,
+} from './pokemon.api.types';
 
 const pokemonApi = createApi({
   reducerPath: 'pokemonApi',
@@ -13,9 +20,25 @@ const pokemonApi = createApi({
       query: ({ limit = POKEMON_PAGE_SIZE, offset = 0 }) =>
         `/pokemon?limit=${limit}&offset=${offset}`,
     }),
+    getPokemonDetail: builder.query<
+      GetPokemonDetailResponse,
+      GetPokemonDetailParams
+    >({
+      query: ({ url }) => url,
+    }),
+    getPokemonSpeciesDetail: builder.query<
+      GetPokemonSpeciesDetailsResponse,
+      GetPokemonSpeciesDetailsParams
+    >({
+      query: ({ url }) => url,
+    }),
   }),
 });
 
-export const { useGetPokemonsQuery } = pokemonApi;
+export const {
+  useGetPokemonsQuery,
+  useGetPokemonDetailQuery,
+  useGetPokemonSpeciesDetailQuery,
+} = pokemonApi;
 
 export default pokemonApi;

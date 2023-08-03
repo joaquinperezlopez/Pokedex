@@ -78,6 +78,18 @@ export const selectFavorites = createSelector(
   favorites => favorites
 );
 
+const favoriteQuery = (_: RootState, pokemonName: string) => pokemonName;
+
+export const selectIsFavorite = createSelector(
+  (state: RootState) => state.pokemons.favorites,
+  favoriteQuery,
+  (favorites, pokemonName) => {
+    return favorites.some(
+      (favorite: NamedAPIResource) => favorite.name === pokemonName
+    );
+  }
+);
+
 // Action creators are generated for each case reducer function
 export const { toggleFavorite } = pokemonSlice.actions;
 

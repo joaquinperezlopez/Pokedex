@@ -7,6 +7,9 @@ export default (theme: PokedexTheme) =>
       ...theme.global.headline,
       color: theme.colors.grayScale.light,
     },
+    favoriteButtonSmall: {
+      fontSize: 26,
+    },
     favoriteColor: {
       color: theme.colors.pokemonItem.favorite,
     },

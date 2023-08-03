@@ -4,14 +4,12 @@ import { StyleSheet } from 'react-native';
 export default (theme: PokedexTheme) =>
   StyleSheet.create({
     container: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      backgroundColor: theme.colors.loading.background,
+      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      height: 40,
     },
-    indicator: {
-      color: theme.colors.loading.color,
+    text: {
+      ...theme.global.subTitle1,
     },
   });
