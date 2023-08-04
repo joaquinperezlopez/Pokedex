@@ -24,7 +24,7 @@ Follow these steps to set up the project on your local development environment.
 ### Clone the Project
 To get started, clone this repository to your local machine using the following command:
 
-````
+```
 git clone https://github.com/joaquinperezlopez/pokedex.git
 cd pokedex
 ```
