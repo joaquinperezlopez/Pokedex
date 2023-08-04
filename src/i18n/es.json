@@ -38,5 +38,7 @@
     "generic": {
         "cancel": "Cancelar",
         "yes": "Sí",
+        "exit": "Salir",
+        "logoutQuestion": "¿Estás seguro de que quieres cerrar sesión?",
     }
 }

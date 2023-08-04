@@ -41,19 +41,23 @@ const PokemonListScreen = ({
   useGenericLoading(isLoading);
 
   const onExit = useCallback(() => {
-    Alert.alert('Exit', 'Are you sure you want to exit?', [
-      {
-        text: translate('generic.cancel'),
-        style: 'cancel',
-      },
-      {
-        text: translate('generic.yes'),
-        onPress: () => {
-          dispatch(cleanCredentialsThunk());
-          dispatch(logout());
+    Alert.alert(
+      translate('generic.exit'),
+      translate('generic.logoutQuestion'),
+      [
+        {
+          text: translate('generic.cancel'),
+          style: 'cancel',
         },
-      },
-    ]);
+        {
+          text: translate('generic.yes'),
+          onPress: () => {
+            dispatch(cleanCredentialsThunk());
+            dispatch(logout());
+          },
+        },
+      ]
+    );
   }, [dispatch]);
 
   useLayoutEffect(() => {
