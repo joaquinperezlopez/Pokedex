@@ -42,6 +42,7 @@ const PokedexTextField = ({
         {...rest}
         ref={ref}
         style={themedStyles.input}
+        placeholderTextColor={themedStyles.colors.grayScale.medium}
         onChangeText={onChangeText}
       />
       <Text style={themedStyles.error}>{error?.message ?? ''}</Text>

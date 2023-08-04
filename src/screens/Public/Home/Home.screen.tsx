@@ -7,6 +7,7 @@ import translate, { i18n } from '@i18n/index';
 import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
 import React, { ReactElement } from 'react';
 import { Image, StatusBar, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './Home.styles';
 
 const HomeScreen = ({
@@ -38,7 +39,7 @@ const HomeScreen = ({
   };
 
   return (
-    <View style={[themedStyles.container]}>
+    <SafeAreaView style={[themedStyles.container]}>
       <StatusBar barStyle="light-content" />
       <View style={themedStyles.headerContainer}>
         <Image source={require('@assets/images/pokeball.png')} />
@@ -64,7 +65,7 @@ const HomeScreen = ({
           </TouchableOpacity>
         </View>
       </Footer>
-    </View>
+    </SafeAreaView>
   );
 };
 

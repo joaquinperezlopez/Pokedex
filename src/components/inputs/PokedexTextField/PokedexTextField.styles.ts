@@ -11,6 +11,7 @@ export default (theme: PokedexTheme) =>
       ...theme.global.body2,
       color: theme.colors.input.error,
       fontWeight: 'bold',
+      left: 8,
     },
     input: {
       ...theme.global.subTitle2,

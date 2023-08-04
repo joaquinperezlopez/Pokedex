@@ -15,6 +15,7 @@ import { saveCredentialsThunk } from '@thunks/auth/auth.thunks';
 import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { Alert, ScrollView, Switch, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './Login.styles';
 
 type Inputs = {
@@ -81,7 +82,7 @@ const LoginScreen = ({
   };
 
   return (
-    <View style={themedStyles.container}>
+    <SafeAreaView style={themedStyles.container}>
       <TitleHeader label={translate('screens.login.title')} />
       <ScrollView>
         <FormProvider {...formMethods}>
@@ -138,7 +139,7 @@ const LoginScreen = ({
           onPress={onGoToSignUp}
         />
       </Footer>
-    </View>
+    </SafeAreaView>
   );
 };
 
