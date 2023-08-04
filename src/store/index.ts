@@ -11,8 +11,8 @@ import {
   REGISTER,
   REHYDRATE,
   persistCombineReducers,
+  persistStore,
 } from 'redux-persist';
-import persistStore from 'redux-persist/es/persistStore';
 import authReducer from './slices/auth/auth.slice';
 import pokemonReducer from './slices/pokemon';
 
@@ -30,7 +30,7 @@ const persistedReducer = persistCombineReducers(persistConfig, {
   [pokemonApi.reducerPath]: pokemonApi.reducer,
 });
 
-const setupStore = (preloadedState?: PreloadedState<RootState>) =>
+export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
   configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware => {

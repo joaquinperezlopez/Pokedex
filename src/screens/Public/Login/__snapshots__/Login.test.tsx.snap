@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen test suite renders correctly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 2,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        {
+          "color": "#fff",
+          "fontSize": 32,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      screens.login.title
+    </Text>
+  </View>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          {
+            "gap": 8,
+            "height": 80,
+          }
+        }
+      >
+        <TextInput
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onChangeText={[Function]}
+          placeholder="screens.signUp.email"
+          style={
+            {
+              "backgroundColor": "#fff",
+              "borderRadius": 6,
+              "color": "#000",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "marginHorizontal": 8,
+              "padding": 8,
+            }
+          }
+          value=""
+        />
+        <Text
+          style={
+            {
+              "color": "#fff",
+              "fontSize": 12,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          {
+            "gap": 8,
+            "height": 80,
+          }
+        }
+      >
+        <TextInput
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onChangeText={[Function]}
+          placeholder="screens.signUp.password"
+          secureTextEntry={true}
+          style={
+            {
+              "backgroundColor": "#fff",
+              "borderRadius": 6,
+              "color": "#000",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "marginHorizontal": 8,
+              "padding": 8,
+            }
+          }
+          value=""
+        />
+        <Text
+          style={
+            {
+              "color": "#fff",
+              "fontSize": 12,
+              "fontWeight": "bold",
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 12,
+            "marginHorizontal": 8,
+          }
+        }
+      >
+        <RCTSwitch
+          accessibilityRole="switch"
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            [
+              {
+                "height": 31,
+                "width": 51,
+              },
+              {
+                "backgroundColor": "#DC0A2D",
+                "borderRadius": 16,
+              },
+            ]
+          }
+          thumbTintColor="#fff"
+          value={true}
+        />
+        <Text
+          style={
+            {
+              "color": "#fff",
+              "fontSize": 12,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          screens.login.rememberMe
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      {
+        "gap": 16,
+        "padding": 10,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "disabled": true,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#DC0A2D",
+            "borderColor": "#E0E0E0",
+            "borderRadius": 6,
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "padding": 10,
+          },
+          {
+            "opacity": 0.7,
+          },
+        ]
+      }
+      testID="primaryButtonscreens.login.signIn"
+    >
+      <Text
+        style={
+          {
+            "color": "#fff",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        screens.login.signIn
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#fff",
+            "fontSize": 16,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        screens.login.noAccount
+      </Text>
+    </View>
+  </View>
+</View>
+`;

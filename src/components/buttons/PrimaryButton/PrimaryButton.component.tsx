@@ -17,6 +17,7 @@ const PrimaryButton = ({ label, ...props }: PrimaryButtonProps) => {
   return (
     <TouchableHighlight
       {...props}
+      testID={'primaryButton' + label}
       style={[themedStyles.container, props.disabled && themedStyles.disabled]}>
       <Text style={themedStyles.text}>{label}</Text>
     </TouchableHighlight>

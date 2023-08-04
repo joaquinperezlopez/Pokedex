@@ -5,11 +5,13 @@ import { SPAIN_FLAG, UK_FLAG } from '@constants/index';
 import useThemedStyles from '@hooks/useThemeStyles';
 import translate, { i18n } from '@i18n/index';
 import { PublicStackNavigationProps } from '@navigation/public/public.navigator.types';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Image, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import styles from './Home.styles';
 
-const HomeScreen = ({ navigation }: PublicStackNavigationProps<'Home'>) => {
+const HomeScreen = ({
+  navigation,
+}: PublicStackNavigationProps<'Home'>): ReactElement => {
   const themedStyles = useThemedStyles(styles);
   const [triggerRender, setTriggerRender] = React.useState(false);
 

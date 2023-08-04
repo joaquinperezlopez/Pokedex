@@ -1,8 +1,6 @@
 import LoadingProvider from '@components/providers/LoadingProvider';
 import MainNavigator from '@navigation/main';
-import {
-  NavigationContainer
-} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { persistor, store } from '@store/index';
 import * as React from 'react';
 import { Platform } from 'react-native';
