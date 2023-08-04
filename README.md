@@ -33,7 +33,8 @@ cd pokedex
 ### Create .env file
 Create a `.env` file at the root level of the project and add the following variables with their respective values:
 
-```AUTH_BASE_URL={Confidential}
+```
+AUTH_BASE_URL={Confidential}
 AUTH_API_VERSION={Confidential}
 POKEMON_API_BASE_URL=https://pokeapi.co/api
 POKEMON_API_VERSION=/v2
