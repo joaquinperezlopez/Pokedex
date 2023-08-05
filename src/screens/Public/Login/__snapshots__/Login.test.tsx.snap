@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginScreen test suite renders correctly 1`] = `
-<View
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
+  }
   style={
     {
       "flex": 1,
@@ -47,6 +55,7 @@ exports[`LoginScreen test suite renders correctly 1`] = `
           onChange={[Function]}
           onChangeText={[Function]}
           placeholder="screens.signUp.email"
+          placeholderTextColor="#666666"
           style={
             {
               "backgroundColor": "#fff",
@@ -66,6 +75,7 @@ exports[`LoginScreen test suite renders correctly 1`] = `
               "color": "#fff",
               "fontSize": 12,
               "fontWeight": "bold",
+              "left": 8,
             }
           }
         />
@@ -84,6 +94,7 @@ exports[`LoginScreen test suite renders correctly 1`] = `
           onChange={[Function]}
           onChangeText={[Function]}
           placeholder="screens.signUp.password"
+          placeholderTextColor="#666666"
           secureTextEntry={true}
           style={
             {
@@ -104,6 +115,7 @@ exports[`LoginScreen test suite renders correctly 1`] = `
               "color": "#fff",
               "fontSize": 12,
               "fontWeight": "bold",
+              "left": 8,
             }
           }
         />
@@ -262,5 +274,5 @@ exports[`LoginScreen test suite renders correctly 1`] = `
       </Text>
     </View>
   </View>
-</View>
+</RNCSafeAreaView>
 `;

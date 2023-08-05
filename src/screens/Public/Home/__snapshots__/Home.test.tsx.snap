@@ -1,7 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeScreen renders without crashing 1`] = `
-<View
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
+  }
   style={
     [
       {
@@ -260,5 +268,5 @@ exports[`HomeScreen renders without crashing 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RNCSafeAreaView>
 `;
